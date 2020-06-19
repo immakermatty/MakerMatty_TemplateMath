@@ -17,6 +17,12 @@ T tabs(const T val);
 template <typename T>
 T tmax(const T a, const T b, const T c);
 
+template <typename T>
+T tmax(const T a, const T b);
+
+template <typename T>
+T tmin(const T a, const T b);
+
 //====================================================================
 
 template <typename T>
@@ -28,6 +34,24 @@ T tmax(const T a, const T b, const T c)
     if (c > max)
         max = c;
     return max;
+}
+
+template <typename T>
+T tmax(const T a, const T b)
+{
+    T max = a;
+    if (b > max)
+        max = b;
+    return max;
+}
+
+template <typename T>
+T tmin(const T a, const T b)
+{
+    T min = a;
+    if (b < min)
+        min = b;
+    return min;
 }
 
 template <typename T>
@@ -52,6 +76,12 @@ T tmap(T x, const T in_min, const T in_max, const T out_min, const T out_max)
     }
 
     T result = (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+
+    if (result < tmin(out_min, out_max)) {
+        result = tmin(out_min, out_max);
+    } else if (result > tmax(out_min, out_max)) {
+        result = tmax(out_min, out_max);
+    }
 
     return result;
 }
