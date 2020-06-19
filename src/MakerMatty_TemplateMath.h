@@ -53,12 +53,6 @@ T tmap(T x, const T in_min, const T in_max, const T out_min, const T out_max)
 
     T result = (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 
-    if (result < out_min) {
-        result = out_min;
-    } else if (result > out_max) {
-        result = out_max;
-    }
-
     return result;
 }
 
