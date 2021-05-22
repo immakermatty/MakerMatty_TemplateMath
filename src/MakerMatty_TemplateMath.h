@@ -11,7 +11,7 @@
 // template <typename T>
 // T tmap(T x, const T in_min, const T in_max, const T out_min, const T out_max);
 int32_t map_i32(int32_t x, const int32_t in_min, const int32_t in_max, const int32_t out_min, const int32_t out_max);
-int64_t map_i64(int64_t x, const int64_t in_min, const int64_t in_max, const int64_t out_min, const int64_t out_max);
+int32_t map_i64(int32_t x, const int32_t in_min, const int32_t in_max, const int32_t out_min, const int32_t out_max);
 float map_f32(float x, const float in_min, const float in_max, const float out_min, const float out_max);
 double map_f64(double x, const double in_min, const double in_max, const double out_min, const double out_max);
 

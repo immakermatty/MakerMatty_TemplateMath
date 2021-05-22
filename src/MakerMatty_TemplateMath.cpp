@@ -29,14 +29,14 @@ int32_t map_i32(int32_t x, const int32_t in_min, const int32_t in_max, const int
     return result;
 }
 
-int64_t map_i64(int64_t x, const int64_t in_min, const int64_t in_max, const int64_t out_min, const int64_t out_max)
+int32_t map_i64(int32_t x, const int32_t in_min, const int32_t in_max, const int32_t out_min, const int32_t out_max)
 {
     if (in_max == in_min) {
         return out_min / 2 + out_max / 2;
     }
 
-    int64_t minimum = tmin(in_min, in_max);
-    int64_t maximum = tmax(in_min, in_max);
+    int32_t minimum = tmin(in_min, in_max);
+    int32_t maximum = tmax(in_min, in_max);
 
     if (x < minimum) {
         x = minimum;
@@ -44,7 +44,7 @@ int64_t map_i64(int64_t x, const int64_t in_min, const int64_t in_max, const int
         x = maximum;
     }
 
-    int64_t result = (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+    int32_t result = (int64_t(x) - int64_t(in_min)) * (int64_t(out_max) - int64_t(out_min)) / (int64_t(in_max) - int64_t(in_min)) + out_min;
 
     minimum = tmin(out_min, out_max);
     maximum = tmax(out_min, out_max);
